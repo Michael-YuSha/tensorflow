@@ -14,6 +14,7 @@ java_library(
         ":java_sources",
     ],
     data = [":libtensorflow_jni"],
+    deps = ["@protobuf_java"],
     javacopts = JAVACOPTS,
     visibility = ["//visibility:public"],
 )
@@ -22,7 +23,7 @@ java_library(
 # .aar. At some point, might make sense for a .aar rule here instead.
 filegroup(
     name = "java_sources",
-    srcs = glob(["src/main/java/org/tensorflow/*.java"]),
+    srcs = glob(["src/main/java/org/tensorflow/**/*.java"]),
     visibility = [
         "//tensorflow/contrib/android:__pkg__",
         "//tensorflow/java:__pkg__",
